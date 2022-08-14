@@ -1,5 +1,5 @@
 let rockPaperScissors = [
-    'Rock','Paper','Scissors'
+    'rock','paper','scissors'
 ]
 
 
@@ -12,16 +12,44 @@ function getComputerChoice(){
 // let playerSelection = window.prompt('Rock, paper, or Scissors?');
 //Later, create a prompt that plays this function out
 function playRound(playerSelection,computerSelection){
+    playerSelection = window.prompt('Rock, paper, or scissors?');
     computerSelection = getComputerChoice(); //Get the randomly returned computer's choice;
+    console.log(`The AI chose: ${computerSelection}`);
+    console.log(`Player chose: ${playerSelection}`);
     if (typeof playerSelection === 'string'){
-        if (playerSelection.toLowerCase() == 'rock' 
-        || playerSelection.toLowerCase() == 'paper' 
-        || playerSelection.toLowerCase() == 'scissors'){
-            console.log('Correct options have been made, the game will play');
-            return '1';
+        let lowerCaseSelection = playerSelection.toLowerCase();
+        if (lowerCaseSelection == 'rock' 
+        || lowerCaseSelection == 'paper' 
+        || lowerCaseSelection == 'scissors'){
+            //You can probably make this a seperate function to check if they've won, and make the playRound function less cluttered
+            if (lowerCaseSelection == 'rock'){
+                if (computerSelection == 'rock'){
+                    return 'It was a tie';
+                } else if (computerSelection == 'paper'){
+                    return 'Paper covers rock, you lose!';
+                } else if (computerSelection == 'scissors'){
+                    return 'Rock smashes scissors, you win!';
+                }
+            } else if (lowerCaseSelection == 'paper'){
+                if (computerSelection == 'rock'){
+                    return 'Paper covers rock, you win!';
+                } else if (computerSelection == 'paper'){
+                    return 'It was a tie';
+                } else if (computerSelection == 'scissors'){
+                    return 'Scissors cuts paper, you lose';
+                }
+            } else if (lowerCaseSelection == 'scissors'){
+                if (computerSelection == 'rock'){
+                    return 'Your scissors got smashed, you lose';
+                } else if (computerSelection == 'paper') {
+                    return 'Your scissors slice the paper, you win!';
+                } else if (computerSelection == 'scissors'){
+                    return 'Hot scissor action... Its a tie';
+                }
+            }
         } else {
-            console.log('Noooope');
-            return '0';
+            alert('That is not a rock, paper, OR scissor');
+            return;
         }
     } else {
         return 'That is not an option';
@@ -48,6 +76,4 @@ function playRound(playerSelection,computerSelection){
     //Return result of game via string
 }
 
-playerSelection = 'Rock';
-computerSelection = getComputerChoice();
-console.log(playRound(playerSelection,computerSelection));
+console.log(playRound());
