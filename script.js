@@ -33,7 +33,6 @@ function playRound(playerSelection,computerSelection){
             if (lowerCaseSelection == 'rock'){
                 rounds += 1;
                 if (computerSelection == 'rock'){
-                    
                     return 'It was a tie';
                 } else if (computerSelection == 'paper'){
                     computerPoints += 1;
@@ -78,19 +77,17 @@ function game(){
     roundsToPlay = window.prompt('How many rounds would you like to play?');
     console.log(`You are playing to ${roundsToPlay} rounds`);
         for (let i = 0; i < roundsToPlay; i++){
-            playRound();
+            console.log(playRound());
             console.log(getScore());
         }
         if (playerPoints > computerPoints){
-            console.log('You win');
             return 'Congratulations, you win';
         } else if (playerPoints < computerPoints){
-            console.log('You lose');
             return 'Oh shucks, you lose';
         } else {
-            console.log('tie');
             return 'Oh wow, it was a tie';
         }
+
    
 }
 
