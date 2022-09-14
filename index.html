@@ -5,18 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Challenge</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="script.js" defer></script>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <div id="playeractions"></div>
-    <div id="computeractions"></div>
-    <div id="result"></div>
-    <div id="playerscore"></div>
-    <div id="computerscore"></div>
-    <div id="rounds"></div>
-    <button id="reset">Reset Scores</button>
+    <button id="start">Start Game?</button>
+    <div id="menu-container"><!--This is an attempt to hide all of these things until the start button is pressed-->
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <div id="stats">
+            <div id="playeractions" class = "stat"></div>
+            <div id="computeractions" class = "stat"></div>
+            <div id="result" class = "stat"></div>
+            <div id="playerscore" class = "stat"></div>
+            <div id="computerscore" class = "stat"></div>
+            <div id="rounds" class = "stat"></div>
+        </div>
+        <button id="reset">Reset Scores</button>
+    </div>
+    <div id = "roundsprompt">
+        <label>How many points would you like to play to? (Hit Enter)</label><br>
+        <input type="number" id ="roundstoplay">
+    </div>
 </body>
 </html>
