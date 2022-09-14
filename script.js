@@ -36,7 +36,7 @@ resetButton.addEventListener('click',() => {
     rounds = 0;
     allStats.forEach((div) => {
         console.log(div); 
-        div.textContent = ''
+        div.textContent = '';
     }); //Makes all divs blank upon hitting reset button
     toggleElement("roundsprompt"); //Brings back the roundsprompt menu
     toggleElement("menu-container"); //hides the menu-buttons
@@ -45,6 +45,7 @@ resetButton.addEventListener('click',() => {
     }
 })
 
+//buttons
 rockButton.addEventListener('click', () => {
     if ((playerPoints < roundsToPlay) && (computerPoints < roundsToPlay)){ //Can probably reduce these lines of code into functions
     playRound('rock',getComputerChoice());
@@ -53,14 +54,12 @@ rockButton.addEventListener('click', () => {
     console.log(playerPoints);
     console.log
 }});
-
 paperButton.addEventListener('click',() =>{
     if ((playerPoints < roundsToPlay) && (computerPoints < roundsToPlay)){
     playRound('paper',getComputerChoice())
     displayScore();
     checkPoints(playerPoints,computerPoints);
     }});
-
 scissorsButton.addEventListener('click',(e) =>{
     if ((playerPoints < roundsToPlay) && (computerPoints < roundsToPlay)){
     playRound('scissors',getComputerChoice())
@@ -81,16 +80,11 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-// let playerSelection = window.prompt('Rock, paper, or Scissors?');
-//Later, create a prompt that plays this function out
 function playRound(playerSelection,computerSelection){
     // playerSelection = window.prompt('Rock, paper, or scissors?');
     computerSelection = getComputerChoice(); //Get the randomly returned computer's choice;
     displayPlayerActions.textContent = `You chose: ${playerSelection}`;
     displayComputerActions.textContent =`The AI chose: ${computerSelection}`;
-    // console.log(`Player chose: ${playerSelection}`);
-    // if ((playerPoints < 5) && (computerPoints < 5)){    
-            //You can probably make this a seperate function to check if they've won, and make the playRound function less cluttered
             if (playerSelection == 'rock'){
                 rounds += 1;
                 if (computerSelection == 'rock'){
@@ -158,13 +152,13 @@ function game(){
         }   
 };
 
-
+//Function for toggling an element's visibility 
 function toggleElement(elementName){
-    let visibility =  document.defaultView.getComputedStyle(document.getElementById(elementName), null).getPropertyValue("visibility");;
-    if (visibility == "hidden"){
-        document.getElementById(elementName).style.visibility = "visible";
+    let display =  document.defaultView.getComputedStyle(document.getElementById(elementName), null).getPropertyValue("display");;
+    if (display == "none"){
+        document.getElementById(elementName).style.display = "block";
     } else {
-        document.getElementById(elementName).style.visibility = "hidden";
+        document.getElementById(elementName).style.display = "none";
     }   
 };
 

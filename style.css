@@ -1,8 +1,8 @@
 #menu-container{
-    visibility:hidden;
+    display:none;
 }
 
 #roundsprompt{
-    visibility:hidden;
+    display:none;
 }
 
