@@ -4,9 +4,7 @@ let rockPaperScissors = [
 //Next Goals
 //Add an option to see a history of each round that can be toggled on/off with a button
 //Pretty up the buttons and UI.  Add style and maybe some effects/pictures
-//Hide all buttons at first, and then have them all show up when you hit "start game"
-    //Have a button or input that allows you to decide how many rounds you'd like to play to.
-    //Include a 'Play for me' button that will just play through the selected amount of rounds.
+
 
 
 
@@ -22,11 +20,18 @@ const displayComputerActions = document.querySelector('#computeractions');
 const displayPlayerActions = document.querySelector('#playeractions');
 const allStats = document.querySelectorAll('.stat'); //Have an issue with this not wanting to reset
 const roundsInput = document.querySelector('#roundstoplay')
+const autoPlay = document.querySelector('#autoplay');
+const historyText = document.querySelector('#history');
+
+
+
 let playerPoints = 0;
 let computerPoints = 0;
 let rounds = 0;
 let playerWin;
 let roundsToPlay = 0;
+
+
 
 resetButton.addEventListener('click',() => {
     let confirmAction = confirm('Are you sure you want to reset scores?');
@@ -34,6 +39,7 @@ resetButton.addEventListener('click',() => {
     playerPoints = 0;
     computerPoints = 0;
     rounds = 0;
+    historyText.textContent='';
     allStats.forEach((div) => {
         console.log(div); 
         div.textContent = '';
@@ -48,31 +54,44 @@ resetButton.addEventListener('click',() => {
 //buttons
 rockButton.addEventListener('click', () => {
     if ((playerPoints < roundsToPlay) && (computerPoints < roundsToPlay)){ //Can probably reduce these lines of code into functions
-    playRound('rock',getComputerChoice());
+    let computerSelection = getComputerChoice();
+    playRound('rock',computerSelection);
     displayScore();
-    checkPoints(playerPoints,computerPoints); //Checks to see if either player's points are at 5.  Displays message if they are.
+    checkPoints(playerPoints,computerPoints); 
+    displayHistory('rock',computerSelection);//Checks to see if either player's points are at 5.  Displays message if they are.
     console.log(playerPoints);
     console.log
+
 }});
 paperButton.addEventListener('click',() =>{
     if ((playerPoints < roundsToPlay) && (computerPoints < roundsToPlay)){
-    playRound('paper',getComputerChoice())
+    let computerSelection = getComputerChoice();
+    playRound('paper',computerSelection);
     displayScore();
     checkPoints(playerPoints,computerPoints);
+    displayHistory('paper',computerSelection);
     }});
 scissorsButton.addEventListener('click',(e) =>{
     if ((playerPoints < roundsToPlay) && (computerPoints < roundsToPlay)){
-    playRound('scissors',getComputerChoice())
+    let computerSelection = getComputerChoice();
+    playRound('scissors',computerSelection);
     console.log(e);
     displayScore();
+    displayHistory('scissors',computerSelection);
     checkPoints(playerPoints,computerPoints);
     }});
 
+function displayHistory(playerSelection, computerSelection){
+    let newData = document.createElement('p');
+    newData.textContent = displayScore() + `  Player Selected ${playerSelection}; Computer selected ${computerSelection}`
+    historyText.appendChild(newData);
+}
 
 function displayScore(){
     displayRound.textContent = `Round: ${rounds}`;
     displayPlayerPoints.textContent = `Player points: ${playerPoints}`;
     displayComputerPoints.textContent= `Computer points: ${computerPoints}`;
+    return `Round: ${rounds}, Player Points: ${playerPoints}, Computer points: ${computerPoints}`;
 }
 
 function getComputerChoice(){
@@ -118,12 +137,15 @@ function playRound(playerSelection,computerSelection){
                 } else if (computerSelection == 'scissors'){
                     displayResult.textContent = 'Hot scissor action... Its a tie';
                 }}  
+
+            
             };
       
 
 function checkPoints(playerPoints,computerPoints){
     if ((playerPoints == roundsToPlay) || (computerPoints == roundsToPlay)){
         decideWinner();
+        return true;
     }
 }
 
@@ -135,21 +157,16 @@ function decideWinner(){
     }
 };
 
-//Utilize this function for when we want to do the 'auto rounds' player.  
-function game(){
-    roundsToPlay = window.prompt('How many rounds would you like to play?');
-    console.log(`You are playing to ${roundsToPlay} rounds`);
-        for (let i = 0; i < roundsToPlay; i++){
-            console.log(playRound());
-            console.log(getScore());
+ 
+function autoGame(){
+    //Put display history function here
+    console.log(`You are playing to ${roundsToPlay} points`);
+        while (!checkPoints(playerPoints,computerPoints)){
+            let playerChoice = getComputerChoice();
+            let computerChoice = getComputerChoice();
+            playRound(playerChoice,computerChoice);
+            displayHistory(playerChoice,computerChoice);
         }
-        if (playerPoints > computerPoints){
-            return 'Congratulations, you win';
-        } else if (playerPoints < computerPoints){
-            return 'Oh shucks, you lose';
-        } else {
-            return 'Oh wow, it was a tie';
-        }   
 };
 
 //Function for toggling an element's visibility 
@@ -175,6 +192,11 @@ roundsInput.addEventListener('keydown',(e) => {
         toggleElement("roundsprompt");
         toggleElement("menu-container");
     }
+});
+
+autoPlay.addEventListener('click',() => {
+    autoGame();
+    displayScore();
 });
 
 // console.log(g
