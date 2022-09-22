@@ -6,8 +6,9 @@
     display:none;
 }
 
-table{
+#table{
     border:1px solid;
+    display:none;
 }
 
 td {
