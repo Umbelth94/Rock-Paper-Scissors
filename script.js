@@ -5,6 +5,7 @@ let rockPaperScissors = [
     //Pretty up the buttons and UI.  Add style and maybe some effects/pictures
     //Fix bugs:
         //If #history table is not in a div, I can't reset stats and get an error
+        //Fix hitting enter with no value (breaks the game)
     //Find a way to also delete the history when I hit the reset button
  
 
