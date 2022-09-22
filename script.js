@@ -60,6 +60,7 @@ function createRow(playerSelection,computerSelection){
                                     /////////////////////////////////////////////
 
 //Auto Play Button
+const autoPlay = document.querySelector('#autoplay');
 autoPlay.addEventListener('click',() => {
     autoGame();
     displayScore();
@@ -212,7 +213,6 @@ function decideWinner(){
     }
 };
 
-const autoPlay = document.querySelector('#autoplay');
 function autoGame(){
         while (!checkPoints(playerPoints,computerPoints)){
             let playerSelection = getComputerSelection();
