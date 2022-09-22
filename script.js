@@ -2,8 +2,16 @@ let rockPaperScissors = [
     'rock','paper','scissors'
 ]
 //Next Goals
-//Add an option to see a history of each round that can be toggled on/off with a button
-//Pretty up the buttons and UI.  Add style and maybe some effects/pictures
+    //Add an option to see a history of each round that can be toggled on/off with a button
+    //Pretty up the buttons and UI.  Add style and maybe some effects/pictures
+    //Fix bugs:
+        //If #history table is not in a div, I can't reset stats and get an error
+        //Fix Round Result not displaying correct result ()
+    //Find a way to also delete the history when I hit the reset button
+    //Add the history table functionality to the auto play feature
+
+
+
 
 
 
@@ -18,10 +26,8 @@ const displayResult = document.querySelector('#result');
 const displayRound = document.querySelector('#rounds');
 const displayComputerActions = document.querySelector('#computeractions');
 const displayPlayerActions = document.querySelector('#playeractions');
-const allStats = document.querySelectorAll('.stat'); //Have an issue with this not wanting to reset
-const roundsInput = document.querySelector('#roundstoplay')
-const autoPlay = document.querySelector('#autoplay');
-const historyText = document.querySelector('#history');
+
+
 
 
 
@@ -30,10 +36,29 @@ let computerPoints = 0;
 let rounds = 0;
 let playerWin;
 let roundsToPlay = 0;
+let result = '';
 
+
+
+const table = document.querySelector('#table');
+const tableBody = document.querySelector('#tablebody')
+const row = document.querySelector('.row');
+
+function createRow(playerSelection,computerSelection){
+    const newRow = document.createElement('tr');
+    newRow.className = 'row';
+    tableBody.appendChild(newRow);
+    let dataArray = [rounds, playerSelection, computerSelection,result,playerPoints,computerPoints]
+        for (let i = dataArray.length - 1; i >= 0; i--){ //Loop is made backwards, else the loop stops halfway
+            const rowData = document.createElement('td');
+            rowData.textContent = dataArray.shift();
+            newRow.appendChild(rowData);
+        }};
+    // } ray.push(rounds, playerSelection, computerSelection,result,playerPoints,computerPoints);
 
 
 resetButton.addEventListener('click',() => {
+    const allStats = document.querySelectorAll('.stat'); 
     let confirmAction = confirm('Are you sure you want to reset scores?');
     if (confirmAction){
     playerPoints = 0;
@@ -51,36 +76,39 @@ resetButton.addEventListener('click',() => {
     }
 })
 
-//buttons
+//bu
 rockButton.addEventListener('click', () => {
     if ((playerPoints < roundsToPlay) && (computerPoints < roundsToPlay)){ //Can probably reduce these lines of code into functions
-    let computerSelection = getComputerChoice();
-    playRound('rock',computerSelection);
-    displayScore();
-    checkPoints(playerPoints,computerPoints); 
-    displayHistory('rock',computerSelection);//Checks to see if either player's points are at 5.  Displays message if they are.
-    console.log(playerPoints);
-    console.log
-
+        let computerSelection = getComputerSelection();
+        playRound('rock',computerSelection);
+        console.log('rockbutton playRound computer selection1: ' + computerSelection);
+        createRow('rock',computerSelection);
+        console.log('rockbutton createRow computer selection2: ' +computerSelection);
+        displayScore();
+        // console.log(createRow)
+        checkPoints(playerPoints,computerPoints);
 }});
+
 paperButton.addEventListener('click',() =>{
     if ((playerPoints < roundsToPlay) && (computerPoints < roundsToPlay)){
-    let computerSelection = getComputerChoice();
-    playRound('paper',computerSelection);
-    displayScore();
-    checkPoints(playerPoints,computerPoints);
-    displayHistory('paper',computerSelection);
-    }});
+        let computerSelection = getComputerSelection();
+        playRound('paper',computerSelection);
+        displayScore();
+        createRow('paper',computerSelection);
+        checkPoints(playerPoints,computerPoints);
+}});
+
 scissorsButton.addEventListener('click',(e) =>{
     if ((playerPoints < roundsToPlay) && (computerPoints < roundsToPlay)){
-    let computerSelection = getComputerChoice();
-    playRound('scissors',computerSelection);
-    console.log(e);
-    displayScore();
-    displayHistory('scissors',computerSelection);
-    checkPoints(playerPoints,computerPoints);
-    }});
+        let computerSelection = getComputerSelection();
+        playRound('scissors',computerSelection);
+        displayScore();
+        createRow('scissors',computerSelection);
+        checkPoints(playerPoints,computerPoints);
+}});
 
+
+const historyText = document.querySelector('#history');
 function displayHistory(playerSelection, computerSelection){
     let newData = document.createElement('p');
     newData.textContent = displayScore() + `  Player Selected ${playerSelection}; Computer selected ${computerSelection}`
@@ -94,48 +122,58 @@ function displayScore(){
     return `Round: ${rounds}, Player Points: ${playerPoints}, Computer points: ${computerPoints}`;
 }
 
-function getComputerChoice(){
+function getComputerSelection(){
     let computerChoice = rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)]
+    console.log('actual computer choice ' + computerChoice);
     return computerChoice;
 }
 
 function playRound(playerSelection,computerSelection){
+    console.log('play round activated');
     // playerSelection = window.prompt('Rock, paper, or scissors?');
-    computerSelection = getComputerChoice(); //Get the randomly returned computer's choice;
     displayPlayerActions.textContent = `You chose: ${playerSelection}`;
     displayComputerActions.textContent =`The AI chose: ${computerSelection}`;
             if (playerSelection == 'rock'){
                 rounds += 1;
                 if (computerSelection == 'rock'){
                     displayResult.textContent = 'It was a tie';
+                    result = 'tie';
                 } else if (computerSelection == 'paper'){
                     computerPoints += 1;
                     displayResult.textContent = 'Paper covers rock, you lose!';
+                    result = 'loss';
                 } else if (computerSelection == 'scissors'){
                     playerPoints += 1;
                     displayResult.textContent = 'Rock smashes scissors, you win!';
+                    result = 'win';
                 }
             } else if (playerSelection == 'paper'){
                 rounds += 1;
                 if (computerSelection == 'rock'){
                     playerPoints += 1;
                     displayResult.textContent = 'Paper covers rock, you win!';
+                    result = 'win';
                 } else if (computerSelection == 'paper'){
                     displayResult.textContent = 'It was a tie';
+                    result = 'tie';
                 } else if (computerSelection == 'scissors'){
                     computerPoints += 1;
                     displayResult.textContent = 'Scissors cuts paper, you lose';
+                    result = 'loss';
                 }
             } else if (playerSelection == 'scissors'){
                 rounds += 1;
                 if (computerSelection == 'rock'){
                     computerPoints += 1;
                     displayResult.textContent = 'Your scissors got smashed, you lose';
+                    result = 'loss';
                 } else if (computerSelection == 'paper') {
                     playerPoints += 1;
                     displayResult.textContent = 'Your scissors slice the paper, you win!';
+                    result = 'win';
                 } else if (computerSelection == 'scissors'){
                     displayResult.textContent = 'Hot scissor action... Its a tie';
+                    result = 'tie';
                 }}  
 
             
@@ -152,20 +190,22 @@ function checkPoints(playerPoints,computerPoints){
 function decideWinner(){
     if (playerPoints > computerPoints){
         displayResult.textContent = 'Player is the winner! Congratulations';
+        return 'Player is the winner! Congratulations!'
     } else {
         displayResult.textContent = 'Computer is the winner... you should practice more';
+        return 'Computer is the winner... you should practice more';
     }
 };
 
- 
+const autoPlay = document.querySelector('#autoplay');
 function autoGame(){
     //Put display history function here
     console.log(`You are playing to ${roundsToPlay} points`);
         while (!checkPoints(playerPoints,computerPoints)){
-            let playerChoice = getComputerChoice();
-            let computerChoice = getComputerChoice();
-            playRound(playerChoice,computerChoice);
-            displayHistory(playerChoice,computerChoice);
+            let playerSelection = getComputerSelection();
+            let computerSelection = getComputerSelection();
+            playRound(playerSelection,computerSelection);
+            createRow(playerSelection,computerSelection);
         }
 };
 
@@ -186,6 +226,7 @@ document.getElementById("start").addEventListener("click", () => {
     toggleElement("roundsprompt");
 });
 
+const roundsInput = document.querySelector('#roundstoplay')
 roundsInput.addEventListener('keydown',(e) => {
     if (e.key == 'Enter'){
         roundsToPlay = roundsInput.value;

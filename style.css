@@ -6,3 +6,10 @@
     display:none;
 }
 
+table{
+    border:1px solid;
+}
+
+td {
+    text-align:center;
+}
