@@ -2,12 +2,11 @@ let rockPaperScissors = [
     'rock','paper','scissors'
 ]
 //Next Goals
-    //Add an option to see a history of each round that can be toggled on/off with a button
     //Pretty up the buttons and UI.  Add style and maybe some effects/pictures
     //Fix bugs:
         //If #history table is not in a div, I can't reset stats and get an error
     //Find a way to also delete the history when I hit the reset button
-    //Add the history table functionality to the auto play feature
+ 
 
 
 
@@ -65,6 +64,13 @@ autoPlay.addEventListener('click',() => {
     autoGame();
     displayScore();
     toggleElement("table");
+});
+
+//Start Button that makes rest of buttons visible
+document.getElementById("start").addEventListener("click", () => {
+    console.log('start button clicked');
+    toggleElement("start");
+    toggleElement("roundsprompt");
 });
 
 //Toggle History Button
@@ -232,12 +238,7 @@ function toggleElement(elementName){
     }   
 };
 
-//Start Button that makes rest of buttons visible
-document.getElementById("start").addEventListener("click", () => {
-    console.log('start button clicked');
-    toggleElement("start");
-    toggleElement("roundsprompt");
-});
+
 
 const roundsInput = document.querySelector('#roundstoplay')
 roundsInput.addEventListener('keydown',(e) => {
