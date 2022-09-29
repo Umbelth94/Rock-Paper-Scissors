@@ -55,7 +55,12 @@ function createRow(playerSelection,computerSelection){
     }};
     // } ray.push(rounds, playerSelection, computerSelection,result,playerPoints,computerPoints);
     
-                                    
+function deleteRows(rounds){
+    for (let i = 0; i < rounds; i++){ //Using rounds to decide how many times to loop
+        const rows = document.querySelector('.row');
+        tableBody.removeChild(rows);
+    }}; 
+   
                                     ////////////////////BUTTONS//////////////////
                                     /////////////////////////////////////////////
 
@@ -64,7 +69,9 @@ const autoPlay = document.querySelector('#autoplay');
 autoPlay.addEventListener('click',() => {
     autoGame();
     displayScore();
+    if (document.getElementById("table").style.display = "none"){
     toggleElement("table");
+    };
 });
 
 //Start Button that makes rest of buttons visible
@@ -87,16 +94,19 @@ document.getElementById("start").addEventListener("click", () => {
         const allStats = document.querySelectorAll('.stat'); 
         let confirmAction = confirm('Are you sure you want to reset scores?');
         if (confirmAction){
+        deleteRows(rounds);
         playerPoints = 0;
         computerPoints = 0;
         rounds = 0;
-        historyText.textContent='';
+        // historyText.textContent='';
         allStats.forEach((div) => {
             console.log(div); 
             div.textContent = '';
         }); //Makes all divs blank upon hitting reset button
         toggleElement("roundsprompt"); //Brings back the roundsprompt menu
         toggleElement("menu-container"); //hides the menu-buttons
+        if (document.getElementById("table").style.display = "block"){ //Checks to see if history is closed
+        toggleElement("table");};
         } else {
                 return;
             }
@@ -131,12 +141,7 @@ document.getElementById("start").addEventListener("click", () => {
     }});
 
 
-const historyText = document.querySelector('#history');
-function displayHistory(playerSelection, computerSelection){
-    let newData = document.createElement('p');
-    newData.textContent = displayScore() + `  Player Selected ${playerSelection}; Computer selected ${computerSelection}`
-    historyText.appendChild(newData);
-}
+
 
 function displayScore(){
     displayRound.textContent = `Round: ${rounds}`;
@@ -244,8 +249,10 @@ function toggleElement(elementName){
 const roundsInput = document.querySelector('#roundstoplay')
 roundsInput.addEventListener('keydown',(e) => {
     if (e.key == 'Enter'){
+        if (roundsInput.value >= 1){
         roundsToPlay = roundsInput.value;
         toggleElement("roundsprompt");
         toggleElement("menu-container");
-    }
-});
+    } else {
+        alert('please pick a number (higher than 0)')
+    }}});
