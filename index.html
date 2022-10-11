@@ -12,11 +12,6 @@
     <div id="game-container">
         <button id="start">Start Game?</button>
         <div id="menu-container"><!--This is an attempt to hide all of these things until the start button is pressed-->
-            <div id="control-buttons">
-                <button id="reset">Reset Game</button>
-                <button id="autoplay">Play For Me</button>
-                <button id="showhistory">Show Round History</button>
-            </div>
             <div id="stats">
                 <div id="score-boxes">
                     <div id="playerscore-box">
@@ -44,34 +39,41 @@
                     </div>
                 </div>
             </div>
-            <div id="game-buttons">
-                <button id="rock">Rock</button>
-                <button id="paper">Paper</button>
-                <button id="scissors">Scissors</button>
+            <div id="allbuttonscontainer">
+                <div id="game-buttons">
+                    <button id="rock">Rock</button>
+                    <button id="paper">Paper</button>
+                    <button id="scissors">Scissors</button>
+                </div>
+                <div id="control-buttons">
+                    <button id="reset">Reset Game</button>
+                    <button id="autoplay">Play For Me</button>
+                    <button id="showhistory">Show Round History</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div id = "roundsprompt">
-        <label>How many points would you like to play to? (Hit Enter)</label><br>
-        <input type="number" id ="roundstoplay">
+        <div id = "roundsprompt">
+            <label>How many points would you like to play to? (Hit Enter)</label><br>
+            <input type="number" id ="roundstoplay">
+        </div>
     </div>
     <!-- <div id="history"> -->
-        <table id="table">
-            <thead>
-                <tr>
-                    <th>Round #</th>
-                    <th>Player Choice</th>
-                    <th>Computer Choice</th>
-                    <th>Round Result</th>
-                    <th>Player Points</th>
-                    <th>Computer Points</th>
-                </tr>
-            </thead>
-            <tbody id="tablebody">
-                
-            </tbody>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Round #</th>
+                <th>Player Choice</th>
+                <th>Computer Choice</th>
+                <th>Round Result</th>
+                <th>Player Points</th>
+                <th>Computer Points</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
             
-        </table>
+        </tbody>
+        
+    </table>
         <!-- </div> -->
 </body>
 </html>

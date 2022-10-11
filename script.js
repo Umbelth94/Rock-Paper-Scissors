@@ -4,7 +4,7 @@ let rockPaperScissors = [
 //Next Goals
     //Pretty up the buttons and UI.  Add style and maybe some effects/pictures
     //Pretty up the code by organizing it and potentially refactoring it.
- 
+    //Make the results change color based on if it was a round win, loss, or tie.
 
 
 
@@ -157,8 +157,8 @@ function getComputerSelection(){
                                                 //////MAIN GAME FUNCTIONS/////
                                                 /////////////////////////////
 function playRound(playerSelection,computerSelection){
-    displayPlayerActions.textContent = playerSelection;
-    displayComputerActions.textContent = computerSelection;
+    displayPlayerActions.textContent = playerSelection.toUpperCase();
+    displayComputerActions.textContent = computerSelection.toUpperCase();
             if (playerSelection == 'rock'){
                 rounds += 1;
                 if (computerSelection == 'rock'){

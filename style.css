@@ -1,8 +1,36 @@
+* {
+    box-sizing:border-box;
+}
+
+body {
+    background-color:rgb(32, 117, 186);
+    color:aqua;
+}
+
 #game-container{
     display:flex;
     flex-direction:column;
-    border:2px solid black;
+    background-color:rgb(26, 79, 123);
+    border:10px double black;
+    border-radius:15px;
+    height:328px;
+    margin-left:22%;
+    margin-right:22%;
+    /* border:2px solid black; */
     /* align-items:center; */
+}
+
+#start{
+    margin-top:100px;
+    margin-bottom:100px;
+    margin-left:auto;
+    margin-right:auto;
+    Width:250px;
+    Height:100px;
+    border-radius:20px;
+    color:aqua;
+    background-color:rgb(32,117,186);
+
 }
 
 
@@ -10,16 +38,20 @@
     font-size:40px;
 }
 
+#allbuttonscontainer{
+    border:5px double black;
+    background-color:rgb(11, 45, 73)
+}
 #game-buttons {
     display:flex;
     justify-content:space-around;
-    border:2px solid green;
+    margin-top:5px;
 }
 
 #action-boxes{
     display:flex;
     justify-content:space-between;
-    border:2px solid black;
+
 }
 
 #youchose, #aichose{
@@ -27,17 +59,18 @@
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    border:3px dotted black;
-    height:40px;
-    width:150px;
+    border:2px solid black;
+    padding:10px;
+    height:50px;
+    width:170px;
 }
 
 #result{
-    margin-left:auto;
-    margin-right:auto;
     padding-top:15px;
     padding-bottom:15px;
     font-size:50px;
+    width:1200px;
+    height: 100px;
 }
 
 #playerscore-box, #rounds-box, #computerscore-box{
@@ -46,29 +79,46 @@
     justify-content:center;
     align-items:center;
     height:64px;
-    width:110px;
+    width:130px;
     border:3px solid black;
 }
 
 #score-boxes{
     display:flex;
     justify-content:space-between;
-    border:3px dotted orange;
 }
 
 #stats {
     display:flex;
     flex-direction:column;
     justify-content:center;
+    
     /* align-items:center; */
-    border:2px double pink;
 }
 
 #control-buttons {
     display:flex;
     justify-content:space-between;
-    border:2px solid red;
+    margin:5px;
+  
 }
+    #reset, #autoplay, #showhistory {
+        color:aqua;
+        background-color:rgb(32, 117, 186);
+        width:140px;
+        height:30px;
+        border:2px solid black;
+        border-radius:5px;
+    }
+
+    #rock, #paper, #scissors{
+        color:aqua;
+        background-color:rgb(32,117,186);
+        width:133px;
+        height:40px;
+        border:2px solid black;
+        border-radius: 5px;
+    }
 
 
 
