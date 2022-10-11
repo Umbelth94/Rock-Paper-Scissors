@@ -67,7 +67,7 @@ autoPlay.addEventListener('click',() => {
     autoGame();
     displayScore();
     if (document.getElementById("table").style.display = "none"){
-    toggleElement("table");
+    toggleBlockElement("table");
     };
 });
 
@@ -82,7 +82,7 @@ document.getElementById("start").addEventListener("click", () => {
     const showHistoryButton = document.querySelector('#showhistory')
 
     showHistoryButton.addEventListener('click',() => {
-        toggleElement("table");
+        toggleBlockElement("table");
     })
     
 
@@ -103,8 +103,8 @@ document.getElementById("start").addEventListener("click", () => {
         }); //Makes all divs blank upon hitting reset button
         toggleElement("roundsprompt"); //Brings back the roundsprompt menu
         toggleElement("menu-container"); //hides the menu-buttons
-        if (document.getElementById("table").style.display = "flex"){ //Checks to see if history is closed
-        toggleElement("table");};
+        if (document.getElementById("table").style.display = "table"){ //Checks to see if history is closed
+        toggleBlockElement("table");};
         } else {
                 return;
             }
@@ -239,6 +239,16 @@ function toggleElement(elementName){
     let display =  document.defaultView.getComputedStyle(document.getElementById(elementName), null).getPropertyValue("display");;
     if (display == "none"){
         document.getElementById(elementName).style.display = "flex";
+    } else {
+        document.getElementById(elementName).style.display = "none";
+    }   
+};
+
+//This is to toggle block element for Table
+function toggleBlockElement(elementName){
+    let display =  document.defaultView.getComputedStyle(document.getElementById(elementName), null).getPropertyValue("display");;
+    if (display == "none"){
+        document.getElementById(elementName).style.display = "block";
     } else {
         document.getElementById(elementName).style.display = "none";
     }   
