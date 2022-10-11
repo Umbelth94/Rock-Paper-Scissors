@@ -95,6 +95,7 @@ document.getElementById("start").addEventListener("click", () => {
         playerPoints = 0;
         computerPoints = 0;
         rounds = 0;
+        document.getElementById("result").style.color = "black";
         // historyText.textContent='';
         allStats.forEach((div) => {
             console.log(div); 
@@ -156,8 +157,8 @@ function getComputerSelection(){
                                                 //////MAIN GAME FUNCTIONS/////
                                                 /////////////////////////////
 function playRound(playerSelection,computerSelection){
-    displayPlayerActions.textContent = `You chose: ${playerSelection}`;
-    displayComputerActions.textContent =`The AI chose: ${computerSelection}`;
+    displayPlayerActions.textContent = playerSelection;
+    displayComputerActions.textContent = computerSelection;
             if (playerSelection == 'rock'){
                 rounds += 1;
                 if (computerSelection == 'rock'){
@@ -215,9 +216,11 @@ function checkPoints(playerPoints,computerPoints){
 function decideWinner(){
     if (playerPoints > computerPoints){
         displayResult.textContent = 'Player is the winner! Congratulations';
+        document.getElementById("result").style.color = "green";
         return 'Player is the winner! Congratulations!'
     } else {
         displayResult.textContent = 'Computer is the winner... you should practice more';
+        document.getElementById("result").style.color = "red";
         return 'Computer is the winner... you should practice more';
     }
 };
