@@ -3,10 +3,7 @@ let rockPaperScissors = [
 ]
 //Next Goals
     //Pretty up the buttons and UI.  Add style and maybe some effects/pictures
-    //Fix bugs:
-        //If #history table is not in a div, I can't reset stats and get an error
-        //Fix hitting enter with no value (breaks the game)
-    //Find a way to also delete the history when I hit the reset button
+    //Pretty up the code by organizing it and potentially refactoring it.
  
 
 
@@ -105,7 +102,7 @@ document.getElementById("start").addEventListener("click", () => {
         }); //Makes all divs blank upon hitting reset button
         toggleElement("roundsprompt"); //Brings back the roundsprompt menu
         toggleElement("menu-container"); //hides the menu-buttons
-        if (document.getElementById("table").style.display = "block"){ //Checks to see if history is closed
+        if (document.getElementById("table").style.display = "flex"){ //Checks to see if history is closed
         toggleElement("table");};
         } else {
                 return;
@@ -144,9 +141,9 @@ document.getElementById("start").addEventListener("click", () => {
 
 
 function displayScore(){
-    displayRound.textContent = `Round: ${rounds}`;
-    displayPlayerPoints.textContent = `Player points: ${playerPoints}`;
-    displayComputerPoints.textContent= `Computer points: ${computerPoints}`;
+    displayRound.textContent = rounds;
+    displayPlayerPoints.textContent = playerPoints;
+    displayComputerPoints.textContent= computerPoints;
     return `Round: ${rounds}, Player Points: ${playerPoints}, Computer points: ${computerPoints}`;
 }
 
@@ -238,7 +235,7 @@ function autoGame(){
 function toggleElement(elementName){
     let display =  document.defaultView.getComputedStyle(document.getElementById(elementName), null).getPropertyValue("display");;
     if (display == "none"){
-        document.getElementById(elementName).style.display = "block";
+        document.getElementById(elementName).style.display = "flex";
     } else {
         document.getElementById(elementName).style.display = "none";
     }   

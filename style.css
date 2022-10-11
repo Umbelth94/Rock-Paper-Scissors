@@ -1,7 +1,56 @@
+#game-container{
+    display:flex;
+    flex-direction:column;
+    border:2px solid black;
+    /* align-items:center; */
+}
+
+
+#playerscore, #rounds, #computerscore{
+    font-size:40px;
+}
+
+#game-buttons {
+    display:flex;
+    justify-content:space-around;
+    border:2px solid green;
+}
+
+#playerscore-box, #rounds-box, #computerscore-box{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:fit-content;
+    width:fit-content;
+    border:3px solid black;
+}
+
+#score-boxes{
+    display:flex;
+    justify-content:space-between;
+    border:3px dotted orange;
+}
+
+#stats {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    /* align-items:center; */
+    border:2px double pink;
+}
+
+#control-buttons {
+    display:flex;
+    justify-content:space-between;
+    border:2px solid red;
+}
+
 
 
 #menu-container{
     display:none;
+    flex-direction:column;
 }
 
 #roundsprompt{

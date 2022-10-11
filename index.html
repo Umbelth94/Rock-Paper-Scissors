@@ -9,44 +9,62 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="start">Start Game?</button>
-    <div id="menu-container"><!--This is an attempt to hide all of these things until the start button is pressed-->
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-        <div id="stats">
-            <div id="playeractions" class = "stat"></div>
-            <div id="computeractions" class = "stat"></div>
-            <div id="result" class = "stat"></div>
-            <div id="playerscore" class = "stat"></div>
-            <div id="computerscore" class = "stat"></div>
-            <div id="rounds" class = "stat"></div>
+    <div id="game-container">
+        <button id="start">Start Game?</button>
+        <div id="menu-container"><!--This is an attempt to hide all of these things until the start button is pressed-->
+            <div id="control-buttons">
+                <button id="reset">Reset Game</button>
+                <button id="autoplay">Play For Me</button>
+                <button id="showhistory">Show Round History</button>
+            </div>
+            <div id="stats">
+                <div id="score-boxes">
+                    <div id="playerscore-box">
+                        <div>Player Points</div>
+                        <div id="playerscore" class = "stat">0</div>
+                    </div>
+                    <div id="rounds-box">
+                        <div>Rounds</div>
+                        <div id="rounds" class = "stat">0</div>
+                    </div>
+                    <div id="computerscore-box">
+                        <div>Computer Points</div>
+                        <div id="computerscore" class = "stat">0</div>        
+                    </div>
+                </div>
+
+                <div id="result" class = "stat"></div>
+                <div id="playeractions" class = "stat"></div>
+                <div id="computeractions" class = "stat"></div>
+            </div>
+            <div id="game-buttons">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
         </div>
-        <button id="reset">Reset Scores</button>
-        <button id="autoplay">Play For Me</button>
-        <button id="showhistory">Show Round History</button>
     </div>
     <div id = "roundsprompt">
         <label>How many points would you like to play to? (Hit Enter)</label><br>
         <input type="number" id ="roundstoplay">
     </div>
     <!-- <div id="history"> -->
-    <table id="table">
-        <thead>
-            <tr>
-                <th>Round #</th>
-                <th>Player Choice</th>
-                <th>Computer Choice</th>
-                <th>Round Result</th>
-                <th>Player Points</th>
-                <th>Computer Points</th>
-            </tr>
-        </thead>
-        <tbody id="tablebody">
-        
-        </tbody>
-        
-    </table>
-    <!-- </div> -->
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Round #</th>
+                    <th>Player Choice</th>
+                    <th>Computer Choice</th>
+                    <th>Round Result</th>
+                    <th>Player Points</th>
+                    <th>Computer Points</th>
+                </tr>
+            </thead>
+            <tbody id="tablebody">
+                
+            </tbody>
+            
+        </table>
+        <!-- </div> -->
 </body>
 </html>
