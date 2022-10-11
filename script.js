@@ -5,7 +5,7 @@ let rockPaperScissors = [
     //Pretty up the buttons and UI.  Add style and maybe some effects/pictures
     //Pretty up the code by organizing it and potentially refactoring it.
     //Make the results change color based on if it was a round win, loss, or tie.
-
+    //Get the table to work with flexbox
 
 
 
@@ -95,7 +95,7 @@ document.getElementById("start").addEventListener("click", () => {
         playerPoints = 0;
         computerPoints = 0;
         rounds = 0;
-        document.getElementById("result").style.color = "black";
+        document.getElementById("result").style.color = "aqua";
         // historyText.textContent='';
         allStats.forEach((div) => {
             console.log(div); 
