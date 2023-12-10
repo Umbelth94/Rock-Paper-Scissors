@@ -2,9 +2,16 @@
     box-sizing:border-box;
 }
 
+html{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
 body {
     background-color:rgb(32, 117, 186);
     color:aqua;
+   
+
 }
 
 #game-container{
@@ -15,9 +22,10 @@ body {
     background-color:rgb(26, 79, 123);
     border:10px double black;
     border-radius:15px;
-    height:328px;
     margin-left:22%;
     margin-right:22%;
+    margin-top:15%;
+    margin-bottom:auto;
     /* border:2px solid black; */
     /* align-items:center; */
 }
@@ -72,7 +80,7 @@ body {
     padding-top:15px;
     padding-bottom:15px;
     font-size:50px;
-    height: 100px;
+    height:9rem;
 }
 
 #playerscore-box, #rounds-box, #computerscore-box{
@@ -108,7 +116,7 @@ body {
         color:aqua;
         background-color:rgb(32, 117, 186);
         width:140px;
-        height:30px;
+        /* height:30px; */
         border:2px solid black;
         border-radius:5px;
     }
@@ -117,7 +125,7 @@ body {
         color:aqua;
         background-color:rgb(32,117,186);
         width:133px;
-        height:40px;
+        /* height:40px; */
         border:2px solid black;
         border-radius: 5px;
     }
@@ -157,4 +165,18 @@ td {
     flex-direction:column;
     justify-content:center;
     align-content:center;
+}
+
+@media only screen and (max-width:1024px){
+    #playerscore, #rounds, #computerscore {
+        font-size:20px;
+    }
+
+    #result{
+        font-size:30px;
+    }
+
+    #game-container{
+        margin: 5% 10% auto 10%;
+    }
 }
