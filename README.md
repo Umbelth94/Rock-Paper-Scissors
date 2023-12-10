@@ -15,9 +15,7 @@ I will be coming back to this project to touch it up once I am through the Odin 
 * Rounds history button that populates a chart for each round's results.  
 
 # To Do:
-* Pretty up the Round History chart
 * Find a better way to organize the window, and color code the results of each match.  (Green if player wins, red if player loses, etc.) 
-* Maybe cut down on some of the snarkiness of the prompts...  Y'know, for "professionalism" 
 
 Thanks for checking it out,
 

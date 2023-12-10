@@ -198,7 +198,7 @@ function playRound(playerSelection,computerSelection){
                     displayResult.textContent = 'Your scissors slice the paper, you win!';
                     result = 'win';
                 } else if (computerSelection == 'scissors'){
-                    displayResult.textContent = 'Hot scissor action... Its a tie';
+                    displayResult.textContent = 'Scissor on scissors? Tha\'s a tie';
                     result = 'tie';
                 }}  
 
