@@ -1,3 +1,10 @@
+:root{
+    --main-bg-color: rgb(32,117,186);
+    --game-container-bg-color:rgb(26,79,123);
+    --buttons-bg-color:rgb(11, 45, 73);
+    --font-color:aqua;
+}
+
 * {
     box-sizing:border-box;
 }
@@ -8,8 +15,8 @@ html{
     justify-content:center;
 }
 body {
-    background-color:rgb(32, 117, 186);
-    color:aqua;
+    background-color:var(--main-bg-color);
+    color:var(--font-color);
     display:flex;
     flex-direction:column;
    
@@ -21,7 +28,7 @@ body {
     flex-direction:column;
 
     justify-content:center;
-    background-color:rgb(26, 79, 123);
+    background-color:var(--game-container-bg-color);
     border:10px double black;
     border-radius:15px;
     margin:15% 22% 5% 22%;
@@ -38,8 +45,8 @@ body {
     Width:90%;
     Height:100px;
     border-radius:20px;
-    color:aqua;
-    background-color:rgb(32,117,186);
+    color:var(--font-color);
+    background-color:var(--main-bg-color)
 
 }
 
@@ -62,7 +69,7 @@ body {
 
 #allbuttonscontainer{
     border:5px double black;
-    background-color:rgb(11, 45, 73)
+    background-color:var(--buttons-bg-color);
 }
 #game-buttons {
     display:flex;
@@ -125,8 +132,8 @@ body {
   
 }
     #reset, #autoplay, #showhistory {
-        color:aqua;
-        background-color:rgb(32, 117, 186);
+        color:var(--font-color);
+        background-color:var(--main-bg-color);
         width:140px;
         /* height:30px; */
         border:2px solid black;
@@ -135,7 +142,7 @@ body {
 
     #rock, #paper, #scissors{
         color:aqua;
-        background-color:rgb(32,117,186);
+        background-color:var(--main-bg-color);
         width:133px;
         /* height:40px; */
         border:2px solid black;
@@ -173,10 +180,10 @@ td {
     text-align:center;
 }
 tr{
-    background-color:rgb(26, 79, 123);
+    background-color:var(--game-container-bg-color);
 }
 tr:nth-child(even){
-    background-color:rgb(11, 45, 73)
+    background-color:var(--butons-bg-color);
 }
 
 /* #roundsprompt{
