@@ -10,6 +10,8 @@ html{
 body {
     background-color:rgb(32, 117, 186);
     color:aqua;
+    display:flex;
+    flex-direction:column;
    
 
 }
@@ -33,14 +35,25 @@ body {
 #start{
     margin-top:100px;
     margin-bottom:100px;
-    margin-left:auto;
-    margin-right:auto;
-    Width:250px;
+    margin-left:5%;
+    margin-right:5%;
+    Width:90%;
     Height:100px;
     border-radius:20px;
     color:aqua;
     background-color:rgb(32,117,186);
 
+}
+
+#roundsprompt{
+    display:flex;
+    flex-direction:column;
+    padding:1rem;
+}
+
+#roundstoplay{
+    height:20px;
+    align-self:center;
 }
 
 
