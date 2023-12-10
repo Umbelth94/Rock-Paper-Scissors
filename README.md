@@ -1,3 +1,5 @@
+Live Link: https://umbelth94.github.io/Rock-Paper-Scissors/
+
 # Rock-Paper-Scissors
 
 This is the first real javascript application that I made with guidance from The Odin Project.  
@@ -21,5 +23,5 @@ Thanks for checking it out,
 
 Travis
 
-Live Link: https://umbelth94.github.io/Rock-Paper-Scissors/
+
 
