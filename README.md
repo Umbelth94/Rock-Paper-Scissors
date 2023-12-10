@@ -6,8 +6,6 @@ This is the first real javascript application that I made with guidance from The
 
 Initially, it ran via the console, but once I learned more about DOM manipulation, the goal became to create a fully functioning application utilizing buttons and a text interface to provide feedback to the user.  
 
-I will be coming back to this project to touch it up once I am through the Odin Project's curriculum, but I am proud of the project in it's current state, barring a few buggy display issues.  
-
 # Features
 * 3 Seperate 'windows' between the "Start game", "Rounds Input", and "Game Window"
 * Ability to select how many rounds the user would like to play to.
